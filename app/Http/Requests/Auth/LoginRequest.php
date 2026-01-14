@@ -27,11 +27,22 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'email'],
+            'email' => ['required', 'string', 'email','regex:/^[a-zA-Z0-9.]+@[a-zA-Z0-9.]+\.com$/','max:255'],
             'password' => ['required', 'string'],
         ];
     }
-
+     public function messages(): array
+    {
+        return [
+            'email.required' => 'Email is required.',
+            'email.string' => 'Email must be a string.',
+            'email.email' => 'Email must be a valid email address.',
+            'email.regex' => 'Email must contain only letters and numbers, include @, and end with .com.',
+            'email.max' => 'Email must not exceed 255 characters.',
+            'password.required' => 'Password is required.',
+            'password.string' => 'Password must be a string.',
+        ];
+    }
     /**
      * Attempt to authenticate the request's credentials.
      *

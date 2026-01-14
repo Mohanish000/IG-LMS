@@ -24,10 +24,10 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth'])->get('/admindashboard', function () {
     if (Auth::user()->email !== 'admin@lms.com') {
-        abort(403);
+        return redirect('/login');
     }
     return view('admindashboard');
-})->name('admindashboard');
+})->middleware(['auth', 'verified'])->name('admindashboard');
 
 
 Route::middleware('auth')->group(function () {
