@@ -29,7 +29,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        if (Auth::user()->email === 'admin@lms.com') {
+            return redirect()->intended('/admindashboard');
+        }
+
+     return redirect()->intended('/dashboard');
     }
 
     /**
