@@ -15,6 +15,18 @@
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
+        <!-- Phone Number -->
+        <div class="mt-4">
+            <x-input-label for="Phone_Number" :value="__('Phone Number')" />
+            <x-text-input id="Phone_Number" class="block mt-1 w-full" type="text" name="Phone_Number" :value="old('Phone_Number')" required autofocus autocomplete="Phone_Number" />
+            <x-input-error :messages="$errors->get('Phone_Number')" class="mt-2" />
+        </div>
+        <!-- No of Books Issued -->
+        <div class="mt-4">
+            <x-input-label for="No_of_Books_Issued" :value="__('No of Books Issued')" />
+            <x-text-input id="No_of_Books_Issued" class="block mt-1 w-full" type="text" name="No_of_Books_Issued" :value="old('No_of_Books_Issued')" required autofocus autocomplete="No_of_Books_Issued" />
+            <x-input-error :messages="$errors->get('No_of_Books_Issued')" class="mt-2" />
+        </div>
 
         <!-- Password -->
         <div class="mt-4">
