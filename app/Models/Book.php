@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
         'title',
         'author',
@@ -17,19 +15,19 @@ class Book extends Model
         'total_quantity',
         'issued_count',
         'available_count',
-        'status' 
+        'status',
     ];
-    protected $attributes = [
-        'status' => 1,
-        'issued_count' => 0
-    ];
-    
+
+
+    public function bookDetail()
+    {
+        return $this->hasOne(BookDetail::class);
+    }
+
     public function scopeActive($query)
     {
         return $query->where('status', 1);
     }
-
-
     public function scopeDeleted($query)
     {
         return $query->where('status', -1);
