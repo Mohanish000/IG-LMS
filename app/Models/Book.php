@@ -24,6 +24,10 @@ class Book extends Model
         return $this->hasOne(BookDetail::class);
     }
 
+    public function getBookDetails(){
+        return $this->hasOne(BookDetail::class, 'book_id', 'id');
+    }
+
     public function scopeActive($query)
     {
         return $query->where('status', 1);
