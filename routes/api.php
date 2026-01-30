@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+use App\Http\Controllers\Api\BookApiController;
+
+// Book API Routes
+Route::get('/books', [BookApiController::class, 'index']);
+Route::get('/books/{id}', [BookApiController::class, 'show']);
+Route::post('/books', [BookApiController::class, 'store']);
+Route::put('/books/{id}', [BookApiController::class, 'update']);
+Route::delete('/books/{id}', [BookApiController::class, 'destroy']);
