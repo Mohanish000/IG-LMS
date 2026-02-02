@@ -430,10 +430,10 @@
         }
 
         // Close modals when clicking outside
-        window.onclick = function(event) {
-            if (event.target.id === 'addModal') closeAddModal();
-            if (event.target.id === 'editModal') closeEditModal();
-            if (event.target.id === 'viewModal') closeViewModal();
-        }
+      //  window.onclick = function(event) {
+       //     if (event.target.id === 'addModal') closeAddModal();
+       //     if (event.target.id === 'editModal') closeEditModal();
+       //     if (event.target.id === 'viewModal') closeViewModal();
+      //  }
     </script>
 </x-app-layout>
