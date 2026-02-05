@@ -40,6 +40,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('books', BookController::class);
 });
 
+Route::get('/api-demo', function () {
+    return view('api-demo');
+});
+
 // Profile Routes
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
